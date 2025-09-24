@@ -20,6 +20,30 @@ app.get("/db-check",async(req,res)=>{
     }
 });
 
+app.get('/books',async(req,res)=>{
+    try{
+    const result = await pool.query('SELECT * FROM books');
+    res.json(result.rows);
+   }catch(err){
+    res.status(500).json({ error: err.message });
+   }
+});
+
+app.get('/books/:id/reviews',async(req,res)=>{
+    try{
+        const { id } = req.params;
+        const result = await pool.query(
+      'SELECT r.id, r.rating, r.comment, u.name AS reviewer FROM reviews r JOIN users u ON r.user_id = u.id WHERE r.book_id = $1',
+      [id]
+    );
+    res.json(result.rows);
+
+    }
+    catch(err){
+     res.status(500).json({ error: err.message });
+    }
+});
+
 //Start Server
 const PORT=3000;
 app.listen(PORT,()=>{
