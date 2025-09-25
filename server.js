@@ -5,6 +5,67 @@ const pool = require('./db');
 //Middleware
 app.use(express.json());
 
+//get all users
+app.get("/users",async(req,res)=>{
+    try{
+        const result = await pool.query("SELECT * FROM users ORDER BY id ASC");
+        res.json(result.rows);
+    }catch(err){
+        console.error(err.message);
+        res.status(500).send("Server Error");
+    }
+})
+
+//add a user.
+app.post("/users",async(req,res)=>{
+    try{
+        const{name,email} = req.body;
+        const result=await pool.query( "INSERT INTO users (name, email) VALUES ($1, $2) RETURNING *",
+        [name, email]);
+        res.json(result.rows[0]);
+    }catch(err){
+        console.error(err.message);
+        res.status(500).send("Server error");
+
+    }
+});
+
+//borrow a book
+app.post("/borrow",async(req,res)=>{
+    try{
+        const{user_id,book_id,due_date}=req.body;
+         const result = await pool.query(
+        "INSERT INTO borrowed_books (user_id, book_id, due_date) VALUES ($1, $2, $3) RETURNING *",
+        [user_id, book_id, due_date]
+    );
+    res.json(result.rows[0]);
+    }catch(err){
+        console.error(err.message);
+        res.status(500).send("Server error");
+
+    }
+})
+
+// See all borrowed books with user + book details
+app.get("/borrowed", async (req, res) => {
+  try {
+    const result = await pool.query(`
+      SELECT bb.id, u.name AS user, b.title AS book, bb.borrowed_at, bb.due_date
+      FROM borrowed_books bb
+      JOIN users u ON bb.user_id = u.id
+      JOIN books b ON bb.book_id = b.id
+      ORDER BY bb.borrowed_at DESC
+    `);
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
+
+
+
 //Health check route
 app.get("/health",(req,res)=>{
     res.json({status:"ok",timestamp:new Date()});
