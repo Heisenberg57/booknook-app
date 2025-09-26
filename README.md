@@ -1,24 +1,27 @@
-🌟  BookNook – A Mini Online Library App
+ BookNook – A Mini Online Library App
 
-A full-stack sample application + complete automated test suite that mirrors real-world QA/SDET challenges.
+A full-stack sample application with a complete automated test suite, designed to mirror real-world QA/SDET challenges.
 
-The Application (The System under Test).
+ Application Overview
 
-Features:
+BookNook simulates a mini online library system where users can register, search, borrow, and manage books.
+It provides a playground for both development and end-to-end automated testing.
 
-User registration & login
+ Features
+
+User registration & login (JWT-based authentication)
 
 Search for books
 
-Add books to "My Shelf"
+Add books to My Shelf
 
-Borrow/return books( with DB status update)
+Borrow & return books (with real-time DB status updates)
 
 REST APIs for all operations
 
-Admin Can add/remove books
+Admin panel: add/remove books
 
-Tech stack : 
+ Tech Stack
 
 Backend: Node.js (Express) or Java (Spring Boot)
 
@@ -26,76 +29,76 @@ Frontend: React / simple HTML forms
 
 Database: PostgreSQL / MySQL
 
-Auth: JWT-based login
+Authentication: JWT
 
-Test bifurcation - 
+ Test Bifurcation
 
-/ui-tests (UI automation code)
+Organized by layers of the Test Pyramid:
 
-/api-tests (API automation code)
+/ui-tests            → UI automation (Playwright / Selenium)
+/api-tests           → API automation (RestAssured / SuperTest)
+/db-tests            → Database validation scripts
+/performance-tests   → JMeter / k6 scripts
+/.github/workflows   → CI/CD pipeline (GitHub Actions YAML)
 
-/db-tests (DB validations)
+ API Endpoints
+ Users
 
-/performance-tests (JMeter/k6 scripts)
+POST /users → Create a user
 
-CI/CD pipeline YAML (GitHub Actions)
+GET /users → List all users
 
-API Endpoints Added :
+ Borrowed Books
 
-Users
+POST /borrow → Borrow a book
 
-POST /users → add a user
+GET /borrowed → List borrowed books
 
-GET /users → list all users
+ Test Layers (Test Pyramid)
+ Unit Tests (Base Layer)
 
-Borrowed Books
+Frameworks: JUnit/TestNG (Java) or Jest/Mocha (Node)
 
-POST /borrow → borrow a book
+Coverage (~70%):
 
-GET /borrowed → see all borrowed books
+Utility functions (e.g., password hashing, due-date calculator)
 
-🔹 The Test Layers (Test Pyramid)
+Service classes (e.g., BorrowService, UserAuthService)
 
-Unit Tests (Base layer)
+API Tests (Middle Layer)
 
-Written in JUnit/TestNG (Java) or Jest/Mocha (Node).
+Frameworks: RestAssured (Java) / SuperTest (Node)
 
-Cover:
+Scenarios Covered:
 
-Utility functions (e.g., password hashing, due-date calculator).
+POST /login → valid & invalid users
 
-Service classes (e.g., BorrowService, UserAuthService).
+GET /books → search, pagination checks
 
-Achieve good coverage (~70%).
+POST /borrow → DB entry verification
 
-API Tests (Middle layer)
+JSON schema validation
 
-Framework: RestAssured (Java) or SuperTest (Node).
+Data-driven testing (users, books)
 
-Tests for endpoints:
+UI Tests (Top Layer)
 
-POST /login → valid/invalid users
+Frameworks: Playwright / Selenium
 
-GET /books → search works, pagination
+Design Pattern: Page Object Model (POM)
 
-POST /borrow → DB entry is created
+Core Flows:
 
-Schema validation for JSON responses
+User: login → search book → borrow → return
 
-Data-driven testing (users, books).
+Admin: login → add/remove book
 
-UI Tests (Top layer)
+Cross-browser execution supported
 
-Framework: Playwright or Selenium.
+CI/CD Integration
 
-Page Object Model.
+Automated test execution via GitHub Actions.
 
-Core flows:
+Separate jobs for unit, API, UI, DB, and performance tests.
 
-User login → search book → borrow → return.
-
-Admin login → add/remove book.
-
-Cross-browser config.
-
-
+Configurable test reports & artifacts.
