@@ -1,13 +1,13 @@
- BookNook – A Mini Online Library App
+📚 BookNook – A Mini Online Library App
 
 A full-stack sample application with a complete automated test suite, designed to mirror real-world QA/SDET challenges.
 
- Application Overview
+🚀 Application Overview
 
 BookNook simulates a mini online library system where users can register, search, borrow, and manage books.
 It provides a playground for both development and end-to-end automated testing.
 
- Features
+✨ Features
 
 User registration & login (JWT-based authentication)
 
@@ -21,7 +21,7 @@ REST APIs for all operations
 
 Admin panel: add/remove books
 
- Tech Stack
+🛠 Tech Stack
 
 Backend: Node.js (Express) or Java (Spring Boot)
 
@@ -31,7 +31,7 @@ Database: PostgreSQL / MySQL
 
 Authentication: JWT
 
- Test Bifurcation
+📂 Test Bifurcation
 
 Organized by layers of the Test Pyramid:
 
@@ -41,21 +41,21 @@ Organized by layers of the Test Pyramid:
 /performance-tests   → JMeter / k6 scripts
 /.github/workflows   → CI/CD pipeline (GitHub Actions YAML)
 
- API Endpoints
- Users
+📡 API Endpoints
+👤 Users
 
 POST /users → Create a user
 
 GET /users → List all users
 
- Borrowed Books
+📖 Borrowed Books
 
 POST /borrow → Borrow a book
 
 GET /borrowed → List borrowed books
 
- Test Layers (Test Pyramid)
- Unit Tests (Base Layer)
+🔹 Test Layers (Test Pyramid)
+🧩 Unit Tests (Base Layer)
 
 Frameworks: JUnit/TestNG (Java) or Jest/Mocha (Node)
 
@@ -65,7 +65,7 @@ Utility functions (e.g., password hashing, due-date calculator)
 
 Service classes (e.g., BorrowService, UserAuthService)
 
-API Tests (Middle Layer)
+🌐 API Tests (Middle Layer)
 
 Frameworks: RestAssured (Java) / SuperTest (Node)
 
@@ -81,7 +81,7 @@ JSON schema validation
 
 Data-driven testing (users, books)
 
-UI Tests (Top Layer)
+💻 UI Tests (Top Layer)
 
 Frameworks: Playwright / Selenium
 
@@ -95,10 +95,10 @@ Admin: login → add/remove book
 
 Cross-browser execution supported
 
-CI/CD Integration
+⚡ CI/CD Integration
 
-Automated test execution via GitHub Actions.
+Automated test execution via GitHub Actions
 
-Separate jobs for unit, API, UI, DB, and performance tests.
+Separate jobs for unit, API, UI, DB, and performance tests
 
-Configurable test reports & artifacts.
+Configurable test reports & artifacts
