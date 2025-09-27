@@ -58,6 +58,8 @@ Review Books
 
 POST/reviews -> post a review
 GET/reviews -> get reviews
+PUT/reviews/id -> update a review
+DELETE/reviews/id -> delete a review
 
 🔹 Test Layers (Test Pyramid)
 🧩 Unit Tests (Base Layer)
