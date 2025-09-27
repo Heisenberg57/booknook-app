@@ -63,6 +63,43 @@ app.get("/borrowed", async (req, res) => {
   }
 });
 
+//get a review
+app.get("/reviews",async(req,res)=>{
+    try{
+        const result = await pool.query(`SELECT r.id, r.rating, r.comment, 
+             u.name AS reviewer, 
+             b.title AS book
+      FROM reviews r
+      JOIN users u ON r.user_id = u.id
+      JOIN books b ON r.book_id = b.id
+      ORDER BY r.id DESC`);
+      res.json(result.rows);
+    }
+    catch(err){
+    console.error(err.message);
+    res.status(500).send("Server error");
+
+    }
+});
+
+//add a review
+app.post("/reviews",async(req,res)=>{
+    try{
+        const {user_id, book_id, rating, comment} = req.body;
+
+        const result = await pool.query(
+      "INSERT INTO reviews (user_id, book_id, rating, comment) VALUES ($1, $2, $3, $4) RETURNING *",
+      [user_id, book_id, rating, comment]
+    );
+    res.json(result.rows[0]);
+
+    }
+    catch(err){
+    console.error(err.message);
+    res.status(500).send("Server error");
+    }
+});
+
 
 
 
