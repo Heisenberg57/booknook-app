@@ -54,6 +54,11 @@ POST /borrow → Borrow a book
 
 GET /borrowed → List borrowed books
 
+Review Books
+
+POST/reviews -> post a review
+GET/reviews -> get reviews
+
 🔹 Test Layers (Test Pyramid)
 🧩 Unit Tests (Base Layer)
 
