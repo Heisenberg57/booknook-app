@@ -5,7 +5,7 @@ const pool = new Pool({
   host: "localhost",      // or container IP
   database: "booknook",
   password: "pass",       // change if different
-  port: 5432,
+  port: 5432
 });
 
 module.exports = pool;
