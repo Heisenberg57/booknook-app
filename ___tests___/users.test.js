@@ -25,4 +25,10 @@ describe("Users API",()=>{
         expect(Array.isArray(res.body)).toBe(true);
     });
 
+    it("should get a user by user ID",async()=>{
+        const res = await request(app).get(`/users/${testUserId}`);
+        expect(res.statusCode).toEqual(200);
+        expect(res.body).toHaveProperty("id", testUserId);
+    })
+
 })

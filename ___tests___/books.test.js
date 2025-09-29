@@ -25,4 +25,10 @@ describe("Books API", () => {
     expect(Array.isArray(res.body)).toBe(true);
   });
 
+  it("should get a book by ID", async () => {
+    const res = await request(app).get(`/books/${testBookId}`);
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toHaveProperty("id", testBookId);
+  });
+
 });
