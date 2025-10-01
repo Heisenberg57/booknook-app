@@ -1,9 +1,41 @@
 const express = require('express');
+const path = require("path");
 const app = express();
 const pool = require('./db');
 
 //Middleware
 app.use(express.json());
+
+// Set view engine
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
+// --- UI Routes ---
+// Homepage
+app.get("/", (req, res) => {
+  res.render("index", { title: "BookNook Library" });
+});
+
+// Users page
+app.get("/users-ui", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM users ORDER BY id ASC");
+    res.render("users", { users: result.rows });
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
+
+// Handle user form submission
+app.post("/users-ui", async (req, res) => {
+  try {
+    const { name, email } = req.body;
+    await pool.query("INSERT INTO users (name, email) VALUES ($1, $2)", [name, email]);
+    res.redirect("/users-ui"); // refresh page after adding
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
 
 /////////// All USERS ROUTES/////////////
 
