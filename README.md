@@ -1,38 +1,31 @@
 📚 BookNook – A Mini Online Library App
-
+---------------------------------------
 A full-stack sample application with a complete automated test suite, designed to mirror real-world QA/SDET challenges.
 
 🚀 Application Overview
-
+-----------------------
 BookNook simulates a mini online library system where users can register, search, borrow, and manage books.
 It provides a playground for both development and end-to-end automated testing.
 
 ✨ Features
-
+------------
 User registration & login (JWT-based authentication)
 
 Search for books
-
 Add books to My Shelf
-
 Borrow & return books (with real-time DB status updates)
-
 REST APIs for all operations
-
 Admin panel: add/remove books
 
 🛠 Tech Stack
-
-Backend: Node.js (Express) or Java (Spring Boot)
-
+-------------
+Backend: Node.js (Express) 
 Frontend: React / simple HTML forms
-
 Database: PostgreSQL / MySQL
-
 Authentication: JWT
 
 📂 Test Bifurcation
-
+-------------------
 Organized by layers of the Test Pyramid:
 
 /ui-tests            → UI automation (Playwright / Selenium)
@@ -42,6 +35,7 @@ Organized by layers of the Test Pyramid:
 /.github/workflows   → CI/CD pipeline (GitHub Actions YAML)
 
 📡 API Endpoints
+-----------------
 👤 Users
 
 POST /users → Create a user
@@ -103,9 +97,12 @@ Admin: login → add/remove book
 Cross-browser execution supported
 
 ⚡ CI/CD Integration
+--------------------
 
 Automated test execution via GitHub Actions
 
 Separate jobs for unit, API, UI, DB, and performance tests
 
 Configurable test reports & artifacts
+
+
