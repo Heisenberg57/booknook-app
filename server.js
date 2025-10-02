@@ -5,6 +5,7 @@ const pool = require('./db');
 
 //Middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Set view engine
 app.set("view engine", "ejs");
@@ -32,6 +33,33 @@ app.post("/users-ui", async (req, res) => {
     const { name, email } = req.body;
     await pool.query("INSERT INTO users (name, email) VALUES ($1, $2)", [name, email]);
     res.redirect("/users-ui"); // refresh page after adding
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
+
+// Update user from UI
+app.post("/users-ui/edit/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, email } = req.body;
+    await pool.query("UPDATE users SET name=$1, email=$2 WHERE id=$3", [
+      name,
+      email,
+      id,
+    ]);
+    res.redirect("/users-ui");
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
+
+// Delete user from UI
+app.post("/users-ui/delete/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    await pool.query("DELETE FROM users WHERE id=$1", [id]);
+    res.redirect("/users-ui");
   } catch (err) {
     res.status(500).send(err.message);
   }
