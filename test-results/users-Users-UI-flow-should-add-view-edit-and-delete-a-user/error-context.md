@@ -1,7 +1,7 @@
 # Page snapshot
 
 ```yaml
-- generic [ref=e1]:
+- generic [active] [ref=e1]:
   - heading "All Users" [level=1] [ref=e3]
   - generic [ref=e4]:
     - textbox "Name" [ref=e5]
@@ -113,7 +113,21 @@
         - textbox [ref=e110]: Updated User2
         - textbox [ref=e111]: updated2@example.com
         - button "Update" [ref=e112] [cursor=pointer]
-      - button "Delete" [active] [ref=e114] [cursor=pointer]
-  - link "Back to Home" [ref=e115] [cursor=pointer]:
+      - button "Delete" [ref=e114] [cursor=pointer]
+    - listitem [ref=e115]:
+      - text: Test User 7 - testuser7@example.com
+      - generic [ref=e116]:
+        - textbox [ref=e117]: Test User 7
+        - textbox [ref=e118]: testuser7@example.com
+        - button "Update" [ref=e119] [cursor=pointer]
+      - button "Delete" [ref=e121] [cursor=pointer]
+    - listitem [ref=e122]:
+      - text: Updated User 3 - updated3@example.com
+      - generic [ref=e123]:
+        - textbox [ref=e124]: Updated User 3
+        - textbox [ref=e125]: updated3@example.com
+        - button "Update" [ref=e126] [cursor=pointer]
+      - button "Delete" [ref=e128] [cursor=pointer]
+  - link "Back to Home" [ref=e129] [cursor=pointer]:
     - /url: /
 ```
