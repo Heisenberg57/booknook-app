@@ -1,5 +1,119 @@
 # Page snapshot
 
 ```yaml
-- generic [active] [ref=e1]: duplicate key value violates unique constraint "users_email_key"
+- generic [ref=e1]:
+  - heading "All Users" [level=1] [ref=e3]
+  - generic [ref=e4]:
+    - textbox "Name" [ref=e5]
+    - textbox "Email" [ref=e6]
+    - button "Add User" [ref=e7] [cursor=pointer]
+  - separator [ref=e8]
+  - list [ref=e9]:
+    - listitem [ref=e10]:
+      - text: Alice Tester - alice@example.com
+      - generic [ref=e11]:
+        - textbox [ref=e12]: Alice Tester
+        - textbox [ref=e13]: alice@example.com
+        - button "Update" [ref=e14] [cursor=pointer]
+      - button "Delete" [ref=e16] [cursor=pointer]
+    - listitem [ref=e17]:
+      - text: Bob QA - bob@example.com
+      - generic [ref=e18]:
+        - textbox [ref=e19]: Bob QA
+        - textbox [ref=e20]: bob@example.com
+        - button "Update" [ref=e21] [cursor=pointer]
+      - button "Delete" [ref=e23] [cursor=pointer]
+    - listitem [ref=e24]:
+      - text: Charlie Tester - charlie@example.com
+      - generic [ref=e25]:
+        - textbox [ref=e26]: Charlie Tester
+        - textbox [ref=e27]: charlie@example.com
+        - button "Update" [ref=e28] [cursor=pointer]
+      - button "Delete" [ref=e30] [cursor=pointer]
+    - listitem [ref=e31]:
+      - text: Nikhila Suyog Nimbre - nikhila.nimbre@example.com
+      - generic [ref=e32]:
+        - textbox [ref=e33]: Nikhila Suyog Nimbre
+        - textbox [ref=e34]: nikhila.nimbre@example.com
+        - button "Update" [ref=e35] [cursor=pointer]
+      - button "Delete" [ref=e37] [cursor=pointer]
+    - listitem [ref=e38]:
+      - text: Suyog Nimbre - nimbre@example.com
+      - generic [ref=e39]:
+        - textbox [ref=e40]: Suyog Nimbre
+        - textbox [ref=e41]: nimbre@example.com
+        - button "Update" [ref=e42] [cursor=pointer]
+      - button "Delete" [ref=e44] [cursor=pointer]
+    - listitem [ref=e45]:
+      - text: super power sdet - superpowersdet@nimbre.com
+      - generic [ref=e46]:
+        - textbox [ref=e47]: super power sdet
+        - textbox [ref=e48]: superpowersdet@nimbre.com
+        - button "Update" [ref=e49] [cursor=pointer]
+      - button "Delete" [ref=e51] [cursor=pointer]
+    - listitem [ref=e52]:
+      - text: Method Actor indian - method.actor.inr@tyger.in
+      - generic [ref=e53]:
+        - textbox [ref=e54]: Method Actor indian
+        - textbox [ref=e55]: method.actor.inr@tyger.in
+        - button "Update" [ref=e56] [cursor=pointer]
+      - button "Delete" [ref=e58] [cursor=pointer]
+    - listitem [ref=e59]:
+      - text: Test User - testuser@example.com
+      - generic [ref=e60]:
+        - textbox [ref=e61]: Test User
+        - textbox [ref=e62]: testuser@example.com
+        - button "Update" [ref=e63] [cursor=pointer]
+      - button "Delete" [ref=e65] [cursor=pointer]
+    - listitem [ref=e66]:
+      - text: Method2Actor - method.act4or@tyger.in
+      - generic [ref=e67]:
+        - textbox [ref=e68]: Method2Actor
+        - textbox [ref=e69]: method.act4or@tyger.in
+        - button "Update" [ref=e70] [cursor=pointer]
+      - button "Delete" [ref=e72] [cursor=pointer]
+    - listitem [ref=e73]:
+      - text: Test User 2 - testuser2@example.com
+      - generic [ref=e74]:
+        - textbox [ref=e75]: Test User 2
+        - textbox [ref=e76]: testuser2@example.com
+        - button "Update" [ref=e77] [cursor=pointer]
+      - button "Delete" [ref=e79] [cursor=pointer]
+    - listitem [ref=e80]:
+      - text: Test User 4 - testuser4@example.com
+      - generic [ref=e81]:
+        - textbox [ref=e82]: Test User 4
+        - textbox [ref=e83]: testuser4@example.com
+        - button "Update" [ref=e84] [cursor=pointer]
+      - button "Delete" [ref=e86] [cursor=pointer]
+    - listitem [ref=e87]:
+      - text: Updated User - updated@example.com
+      - generic [ref=e88]:
+        - textbox [ref=e89]: Updated User
+        - textbox [ref=e90]: updated@example.com
+        - button "Update" [ref=e91] [cursor=pointer]
+      - button "Delete" [ref=e93] [cursor=pointer]
+    - listitem [ref=e94]:
+      - text: Test User 5 - testuser5@example.com
+      - generic [ref=e95]:
+        - textbox [ref=e96]: Test User 5
+        - textbox [ref=e97]: testuser5@example.com
+        - button "Update" [ref=e98] [cursor=pointer]
+      - button "Delete" [ref=e100] [cursor=pointer]
+    - listitem [ref=e101]:
+      - text: Test User 6 - testuser6@example.com
+      - generic [ref=e102]:
+        - textbox [ref=e103]: Test User 6
+        - textbox [ref=e104]: testuser6@example.com
+        - button "Update" [ref=e105] [cursor=pointer]
+      - button "Delete" [ref=e107] [cursor=pointer]
+    - listitem [ref=e108]:
+      - text: Updated User2 - updated2@example.com
+      - generic [ref=e109]:
+        - textbox [ref=e110]: Updated User2
+        - textbox [ref=e111]: updated2@example.com
+        - button "Update" [ref=e112] [cursor=pointer]
+      - button "Delete" [active] [ref=e114] [cursor=pointer]
+  - link "Back to Home" [ref=e115] [cursor=pointer]:
+    - /url: /
 ```
