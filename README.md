@@ -105,4 +105,6 @@ Separate jobs for unit, API, UI, DB, and performance tests
 
 Configurable test reports & artifacts
 
+Added Playwright script for entire crud Ui operation
+
 
