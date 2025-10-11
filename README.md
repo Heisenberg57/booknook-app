@@ -108,4 +108,4 @@ Configurable test reports & artifacts
 Added Playwright script for entire crud Ui operation
 -----------------------------------------------------
 
-
+Added playwright with typescript
